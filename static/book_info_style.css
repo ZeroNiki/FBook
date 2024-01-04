@@ -1,0 +1,183 @@
+body {
+  background: #343F44; 
+}
+
+.logo {
+  width: 70.533px;
+  height: 57.459px;
+  position: absolute;
+  left: 400px;
+  top: 10px
+}
+
+a {
+  font-family: Inter;
+  text-decoration: none;
+}
+
+
+.nav {
+  font-family: Inter;
+  font-size: 17px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  position: absolute;
+  left: 720px;
+  top: 30px;
+}
+
+.nav a {
+  margin-right: 40px;
+  transition: color 0.3s ease;
+  color: rgba(211, 198, 170, 1);
+}
+
+.nav a:hover {
+  color: yellow;
+}
+
+.logotext {
+  position: absolute;
+  width: 80.467px;
+  height: 51.247px;
+  font-family: Inter;
+  font-size: 27px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  left: 465px;
+  top: 19px;
+}
+
+.logotext a {
+  color: rgba(167, 192, 128, 1);
+}
+
+.navbar {
+  position: fixed;
+  width: 100%;
+  height: 81px;
+  background: #4F585E;
+  z-index: 2;
+  top: 0px;
+  right: 3px;
+}
+
+.loggin {
+  position: absolute;
+  width: 103px;
+  height: 34px;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #748478;
+  border-radius: 40px;
+  top: 15px;
+  right: 355px;
+  transition: transform 0.3s ease;
+}
+
+.loggin:hover {
+  transform: scale(1.1);
+}
+
+.signin {
+  position: absolute;
+  width: 103px;
+  height: 34px;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: #83C092;
+  border-radius: 40px;
+  top: 15px;
+  right: 200px;
+  transition: transform 0.3s ease;
+}
+
+.signin:hover {
+  transform: scale(1.1);
+}
+
+/*Main*/
+.main {
+  position: absolute;
+  width: 1390px;
+  height: 835px;
+  flex-shrink: 0; 
+  background: #232A2E;
+  border-radius: 20px;
+  top: 130px;
+  left: 270px;
+}
+
+.name-book {
+  font-family: Inter;
+  position: absolute;
+  color: white;
+  top: 25px;
+  left: 450px;
+}
+
+.discription {
+  color: white;
+  width: 840px;
+  position: absolute;
+  height: 223px;
+  flex-shrink: 0;
+  border-radius: 15px;
+  background: #232A2E;
+  left: 450px;
+  top: 200px;
+}
+
+.discription p {
+  font-family: Inter;
+  color: white;
+}
+
+.book-img {
+  position: absolute;
+  background: white;
+  width: 366px;
+  height: 505px;
+  flex-shrink: 0;
+  border-radius: 25px;
+  border: 10px solid #4F585E;
+  top: 25px;
+  left: 25px;
+} 
+
+.book-img img {
+  width: 366px;
+  height: 505px;
+  border-radius: 15px;
+}
+
+.download {
+  width: 344px;
+  height: 46px;
+  flex-shrink: 0;
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 30px;
+  background: rgba(127, 187, 179, 0.70);
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  top: 560px;
+  left: 25px;
+}
+
+.download a{
+  color: white;
+}
+

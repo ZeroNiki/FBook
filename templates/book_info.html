@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="/static/book_info_style.css">
+
+  {% for row in book %}
+  <title>{{ row[1] }}</title>
+  {% endfor %}
+</head>
+
+<body>
+  <!-- Navigation bar -->
+  <div class="navbar">
+    <img class="logo" src="/static/assets/Logo.svg" alt=":)">
+    <div class="logotext"><a href="/">FBook</a></div>
+
+    <div class="nav">
+      <a href="/search"><i class="fa-solid fa-magnifying-glass"></i> Поиск</a>
+      <a href="#"><i class="fa-solid fa-envelope"></i> Контакты</a>
+
+      <a href="/b/{{ random_book }}">
+        <i class="fa-solid fa-shuffle"></i>
+        Рандом
+      </a>
+
+      <a href="#"><i class="fa-brands fa-github"></i> GitHub</a>
+    </div>
+
+    <a href="#" class="loggin"></a>
+    <a href="#" class="signin"></a>
+  </div>
+
+  <!--Main-->
+  <div class="main">
+    <div class="name-book">
+      {% for row in book %}
+      <h1>{{ row[1] }}</h1>
+      <h2>{{ row[2] }}</h2>
+      <h3>{{ row[3] }}</h3>
+      {% endfor %}
+    </div>
+
+    <div class="discription">
+      <h4>Описание:</h4>
+      {% for row in book %}
+      <p>{{ row[5]}} </p>
+      {% endfor %}
+    </div>
+
+    <div class="book-img">
+      {% for row in book %}
+      <img src="{{ row[6] }}" alt="">
+      {% endfor %}
+    </div>
+
+    <div class="download">
+      <a href="#">Не работает</a>
+    </div>
+
+  </div>
+
+</body>
+
+<!--fontawesome-->
+<script src="https://kit.fontawesome.com/a5edb9404e.js" crossorigin="anonymous"></script>
+
+</html>

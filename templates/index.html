@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/static/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FBook</title>
+</head>
+
+<body>
+  <!-- Navigation bar -->
+  <div class="navbar">
+    <img class="logo" src="/static/assets/Logo.svg" alt=":)">
+    <div class="logotext"><a href="/">FBook</a></div>
+
+    <div class="nav">
+      <a href="/search"><i class="fa-solid fa-magnifying-glass"></i> Поиск</a>
+      <a href="#"><i class="fa-solid fa-envelope"></i> Контакты</a>
+
+      <a href="/b/{{ random_book }}">
+        <i class="fa-solid fa-shuffle"></i>
+        Рандом
+      </a>
+
+      <a href="#"><i class="fa-brands fa-github"></i> GitHub</a>
+    </div>
+
+    <a href="#" class="loggin"></a>
+    <a href="#" class="signin"></a>
+  </div>
+
+  <!-- Main  -->
+  <div class="main">
+    <div class="author">
+
+    </div>
+
+    <div class="genre">
+
+    </div>
+
+    <div class="books">
+      <div class="book" id="book">
+        {% for row in img_books %}
+        <a href="{{ url_for('book_info', item_id=row[0]) }}">
+          <img src="{{ row[6] }}" alt="">
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</body>
+
+<!--Font awesome script-->
+<script src="https://kit.fontawesome.com/a5edb9404e.js" crossorigin="anonymous"></script>
+
+</html>
