@@ -1,5 +1,7 @@
 __pycache__
 lib_book.db
 example.db
-users.db
 venv
+users.db
+test.py
+
