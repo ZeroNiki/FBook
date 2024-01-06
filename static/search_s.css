@@ -65,6 +65,8 @@ a {
 }
 
 .loggin {
+  display: flex;
+  color: white;
   position: absolute;
   width: 103px;
   height: 34px;
@@ -78,6 +80,9 @@ a {
   top: 15px;
   right: 355px;
   transition: transform 0.3s ease;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .loggin:hover {
@@ -85,6 +90,8 @@ a {
 }
 
 .signin {
+  display: flex;
+  color: white;
   position: absolute;
   width: 103px;
   height: 34px;
@@ -98,9 +105,47 @@ a {
   top: 15px;
   right: 200px;
   transition: transform 0.3s ease;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .signin:hover {
+  transform: scale(1.1);
+}
+
+.username {
+  position: absolute;
+  top: 8px;
+  right: 100px;
+  color: white;
+  font-size: 20px;
+  font-family: Inter;
+}
+
+.logout {
+  display: flex;
+  color: white;
+  position: absolute;
+  width: 103px;
+  height: 34px;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  background-color: red;
+  font-family: Inter;
+  border-radius: 40px;
+  top: 15px;
+  right: 200px;
+  transition: transform 0.3s ease;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout:hover {
   transform: scale(1.1);
 }
 

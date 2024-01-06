@@ -148,80 +148,55 @@ a {
 .logout:hover {
   transform: scale(1.1);
 }
-/*Main*/
-.main {
+
+/* Main */
+.register-div {
   position: absolute;
-  width: 1390px;
-  height: 835px;
-  flex-shrink: 0; 
-  background: #232A2E;
+  width: 801px;
+  height: 435px;
   border-radius: 20px;
-  top: 130px;
-  left: 270px;
-}
-
-.name-book {
-  font-family: Inter;
-  position: absolute;
-  color: white;
-  top: 25px;
-  left: 450px;
-}
-
-.discription {
-  color: white;
-  width: 840px;
-  position: absolute;
-  height: 223px;
-  flex-shrink: 0;
-  border-radius: 15px;
   background: #232A2E;
-  left: 450px;
-  top: 200px;
+  left: 520px;
+  top: 280px;
+  display: flex;
+  flex-direction: column;
+  z-index: 2;
 }
 
-.discription p {
-  font-family: Inter;
-  color: white;
-}
-
-.book-img {
+.register-name {
   position: absolute;
-  background: white;
-  width: 366px;
-  height: 505px;
+  fill: #FFF; 
+  width: 649px;
+  height: 30px;
   flex-shrink: 0;
-  border-radius: 25px;
-  border: 10px solid #4F585E;
-  top: 25px;
-  left: 25px;
-} 
-
-.book-img img {
-  width: 366px;
-  height: 505px;
-  border-radius: 15px;
+  border-radius: 20px;
+  font-family: Inter;  
+  top: 78px;
+  left: 80px;
 }
 
-.download {
-  width: 344px;
-  height: 46px;
-  flex-shrink: 0;
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 30px;
-  background: rgba(127, 187, 179, 0.70);
-  border: none;
-  cursor: pointer;
+.register-passwd {
   position: absolute;
-  top: 560px;
-  left: 25px;
+  fill: #FFF; 
+  width: 649px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  font-family: Inter;  
+  top: 166px;
+  left: 80px;
 }
 
-.download a{
-  color: white;
+.register-enter {
+  position: absolute;
+  font-family: Inter;  
+  border-radius: 20px;
+  background: #A7C080; 
+  width: 164px;
+  height: 42px;
+  top: 305px;
+  left: 310px;
 }
+
+
 

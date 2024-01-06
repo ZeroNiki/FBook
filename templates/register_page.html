@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <link rel="stylesheet" href="/static/book_info_style.css">
-
-  {% for row in book %}
-  <title>{{ row[1] }}</title>
-  {% endfor %}
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/static/register_style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FBook</title>
 </head>
 
 <body>
@@ -36,38 +35,21 @@
     {% endif %}
   </div>
 
-  <!--Main-->
+  <!-- Main  -->
   <div class="main">
-    <div class="name-book">
-      {% for row in book %}
-      <h1>{{ row[1] }}</h1>
-      <h2>{{ row[2] }}</h2>
-      <h3>{{ row[3] }}</h3>
-      {% endfor %}
+    <div class="register-div">
+      <form action="/create/" method="post" class="register-form">
+        <input type="text" id="username" name="username" class="register-name"
+          placeholder="Введите ваше имя пользователя"><br>
+        <input type="password" id="password" name="password" class="register-passwd"
+          placeholder="Введите ваш пароль"><br><br>
+        <input type="submit" value="Зарегистрироваться" class="register-enter">
+      </form>
     </div>
-
-    <div class="discription">
-      <h4>Описание:</h4>
-      {% for row in book %}
-      <p>{{ row[5]}} </p>
-      {% endfor %}
-    </div>
-
-    <div class="book-img">
-      {% for row in book %}
-      <img src="{{ row[6] }}" alt="">
-      {% endfor %}
-    </div>
-
-    <div class="download">
-      <a href="#">Не работает</a>
-    </div>
-
   </div>
-
 </body>
 
-<!--fontawesome-->
+<!--Font awesome script-->
 <script src="https://kit.fontawesome.com/a5edb9404e.js" crossorigin="anonymous"></script>
 
 </html>

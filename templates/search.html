@@ -25,8 +25,13 @@
       <a href="#"><i class="fa-brands fa-github"></i> GitHub</a>
     </div>
 
-    <a href="#" class="loggin"></a>
-    <a href="#" class="signin"></a>
+    {% if username %}
+    <p class="username"><i class="fa-solid fa-user"></i>{{ username }}</p>
+    <a href="/logout" class="logout">Выйти</a>
+    {% else %}
+    <a href="/enter_page" class="loggin">Войти</a>
+    <a href="/register_page" class="signin">Cоздать аккаунт</a>
+    {% endif %}
   </div>
 
   <!-- Main  -->
