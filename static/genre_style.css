@@ -150,43 +150,15 @@ a {
 }
 
 /*Main*/
-.author {
-  position: absolute; 
-  width: 735px;
-  height: 164px;
-  flex-shrink: 0;
-  border-radius: 20px;
-  background: #232A2E;
-  left: 420px;
-  top: 120px;
-}
-
-.genre {
-  position: absolute;
-  width: 281px;
-  height: 1305px;
-  flex-shrink: 0;
-  border-radius: 20px;
-  background: #232A2E;
-  right: 385px;
-  top: 120px;
-}
-
-.genre h4 {
-  font-family: Inter;
-  color: white;
-  margin-left: 15px;
-}
-
 .books {
   position: absolute;
-  width: 735px;
-  height: 1790px;
+  width: 835px;
+  height: 10000px;
   flex-shrink: 0;
   border-radius: 20px;
   background: #232A2E;
-  left: 420px;
-  top: 312px;
+  left: 520px;
+  top: 212px;
   flex-direction: column;
   display: block;
 }
@@ -208,11 +180,4 @@ a {
   bottom: 10px;
 }
 
-.genre-link {
-  color: white;
-}
 
-.genre-list {
-  list-style-type: none;
-  padding: 0;
-}

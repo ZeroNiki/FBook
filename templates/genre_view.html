@@ -3,9 +3,11 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/genre_style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FBook</title>
+  {% for row in book%}
+  <title>{{ row[3] }}</title>
+  {% endfor %}
 </head>
 
 <body>
@@ -37,22 +39,9 @@
 
   <!-- Main  -->
   <div class="main">
-    <div class="author">
-
-    </div>
-
-    <div class="genre">
-      <h4>Жанры</h4>
-      {% for genre in genre_name %}
-      <li class="genre-list">
-        <ul><a href="{{ url_for('genre_info', genre_id=genre[0]) }}" class="genre-link">{{ genre[1] }}</a></ul>
-      </li>
-      {% endfor %}
-    </div>
-
     <div class="books">
       <div class="book" id="book">
-        {% for row in img_books %}
+        {% for row in book %}
         <a href="{{ url_for('book_info', item_id=row[0]) }}">
           <img src="{{ row[6] }}" alt="">
         </a>

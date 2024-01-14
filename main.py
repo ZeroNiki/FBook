@@ -73,11 +73,18 @@ async def read_root(request: Request):
 
     conn.close()
 
+    # Connect genre db
+    conn_genre = sqlite3.Connection("db/genre.db")
+    cursor_genre = conn_genre.cursor()
+
+    cursor_genre.execute("SELECT * FROM genre")
+    genre_name = cursor_genre.fetchmany(30)
+
     # get username
     session = request.session
     username = session.get("username")
 
-    return templates.TemplateResponse("index.html", {"request": request, "img_books": img_books, "random_book": random_b, "username": username})
+    return templates.TemplateResponse("index.html", {"request": request, "img_books": img_books, "random_book": random_b, "username": username, "genre_name": genre_name})
 
 
 @app.get("/b/{item_id}", response_class=HTMLResponse)
@@ -95,6 +102,44 @@ async def book_info(request: Request, item_id: int):
     username = session.get("username")
 
     return templates.TemplateResponse("book_info.html", {"request": request, "item_id": item_id, "book": book, "random_book": random_b, "username": username})
+
+
+@app.get("/g/{genre_id}", response_class=HTMLResponse)
+async def genre_info(request: Request, genre_id: int):
+    random_b = random_book()  # <-- book id
+
+    # get username
+    session = request.session
+    username = session.get("username")
+
+    # Genre db
+    genre_db = sqlite3.Connection("db/genre.db")
+    genre_cursor = genre_db.cursor()
+
+    # Lib db
+    lib_db = sqlite3.Connection("lib_book.db")
+    lib_cursor = lib_db.cursor()
+
+    # get genre.db data
+    genre_cursor.execute("SELECT * FROM genre WHERE id = ?", (genre_id,))
+    genre_data = genre_cursor.fetchall()
+
+    # sort lib_db
+    final_res = []
+    for genre in genre_data:
+        genre_name = genre[1]
+
+        lib_cursor.execute(
+            "SELECT * FROM books WHERE genre_book LIKE ?", ('%' + genre_name + '%',))
+
+        lib_data = lib_cursor.fetchall()
+
+        for row_lib in lib_data:
+            final_res.append(row_lib)
+
+    print(final_res)
+
+    return templates.TemplateResponse("genre_view.html", {"request": request, "genre_id": genre_id, "book": final_res, "random_book": random_b, "username": username})
 
 
 @app.get("/search", response_class=HTMLResponse)
@@ -168,9 +213,8 @@ async def create(request: Request, username: str = Form(...), password: str = Fo
 
     return RedirectResponse(url="/", status_code=302)
 
+
 # Logout
-
-
 @app.get("/logout", response_class=RedirectResponse)
 async def logout(request: Request):
     session = request.session
