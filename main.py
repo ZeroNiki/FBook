@@ -13,12 +13,12 @@ import uvicorn
 import sqlite3
 
 
+# Fastapi app
 app = FastAPI()
 app.add_middleware(SessionMiddleware, secret_key="secret")
 
+# Connect HTML and CSS files
 templates = Jinja2Templates(directory="templates/")
-
-
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
 # Connect user.db
@@ -34,6 +34,19 @@ user_cursor.execute('''
 ''')
 
 user.commit()
+
+
+# Popular book (just random book)
+def book_p():
+    conn = sqlite3.connect("lib_book.db")
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM books ORDER BY RANDOM() LIMIT 7")
+
+    popular_book = cursor.fetchall()
+
+    conn.close()
+
+    return popular_book
 
 
 # Random book
@@ -61,6 +74,7 @@ def search_book(name: str) -> List[str]:
     return items
 
 
+# Home
 @app.get("/", response_class=HTMLResponse)
 async def read_root(request: Request):
     conn = sqlite3.connect('lib_book.db')
@@ -70,6 +84,8 @@ async def read_root(request: Request):
     img_books = cursor.fetchmany(99)
 
     random_b = random_book()  # <-- book id
+
+    popular_book = book_p()  # <-- *popular* book
 
     conn.close()
 
@@ -84,9 +100,10 @@ async def read_root(request: Request):
     session = request.session
     username = session.get("username")
 
-    return templates.TemplateResponse("index.html", {"request": request, "img_books": img_books, "random_book": random_b, "username": username, "genre_name": genre_name})
+    return templates.TemplateResponse("index.html", {"request": request, "img_books": img_books, "random_book": random_b, "username": username, "genre_name": genre_name, "book_p": popular_book})
 
 
+# Book page
 @app.get("/b/{item_id}", response_class=HTMLResponse)
 async def book_info(request: Request, item_id: int):
     conn = sqlite3.connect('lib_book.db')
@@ -104,6 +121,7 @@ async def book_info(request: Request, item_id: int):
     return templates.TemplateResponse("book_info.html", {"request": request, "item_id": item_id, "book": book, "random_book": random_b, "username": username})
 
 
+# Genre page
 @app.get("/g/{genre_id}", response_class=HTMLResponse)
 async def genre_info(request: Request, genre_id: int):
     random_b = random_book()  # <-- book id
@@ -137,11 +155,10 @@ async def genre_info(request: Request, genre_id: int):
         for row_lib in lib_data:
             final_res.append(row_lib)
 
-    print(final_res)
-
     return templates.TemplateResponse("genre_view.html", {"request": request, "genre_id": genre_id, "book": final_res, "random_book": random_b, "username": username})
 
 
+# Search page
 @app.get("/search", response_class=HTMLResponse)
 async def search_b(request: Request, name: str = None):
     try:
@@ -173,7 +190,7 @@ async def search_b(request: Request, name: str = None):
         return templates.TemplateResponse("search.html", {"request": request, "random_book": random_b, "e": e, "username": username})
 
 
-# Login
+# Login page
 @app.get("/enter_page", response_class=HTMLResponse)
 async def enter_page(request: Request):
     return templates.TemplateResponse("enter_page.html", {"request": request})
@@ -193,7 +210,7 @@ async def login(response: Response, request: Request, username: str = Form(...),
         return {"message": "Invalid username or password"}
 
 
-# Register
+# Register page
 @app.get("/register_page", response_class=HTMLResponse)
 async def enter(request: Request):
     return templates.TemplateResponse("register_page.html", {"request": request})

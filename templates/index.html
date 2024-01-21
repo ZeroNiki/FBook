@@ -2,6 +2,8 @@
 <html lang="en">
 
 <head>
+  <link rel="icon" href="/static/assets/icon.png" type="image/x-icon">
+
   <meta charset="UTF-8">
   <link rel="stylesheet" href="/static/style.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -37,8 +39,12 @@
 
   <!-- Main  -->
   <div class="main">
-    <div class="author">
-
+    <div class="popular">
+      {% for row in book_p %}
+      <a href="{{ url_for('book_info', item_id=row[0]) }}">
+        <img src="{{ row[6] }}" alt="">
+      </a>
+      {% endfor %}
     </div>
 
     <div class="genre">

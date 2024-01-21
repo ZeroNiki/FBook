@@ -150,7 +150,7 @@ a {
 }
 
 /*Main*/
-.author {
+.popular {
   position: absolute; 
   width: 735px;
   height: 164px;
@@ -159,6 +159,17 @@ a {
   background: #232A2E;
   left: 420px;
   top: 120px;
+}
+
+.popular img {
+  background: white;
+  width: 95px;
+  height: 129px;
+  border-radius: 15px;
+  flex-wrap: wrap;
+  display: inline-block;
+  margin-top: 20px;
+  margin-left: 5px;
 }
 
 .genre {
